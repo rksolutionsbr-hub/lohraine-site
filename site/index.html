@@ -60,7 +60,7 @@ img{max-width:100%;height:auto;display:block}
 .lead{font-size:18px;color:var(--muted);max-width:620px}
 .center{text-align:center}
 .center .lead{margin-left:auto;margin-right:auto}
-section{padding:96px 0;position:relative}
+section{padding:96px 0;position:relative;scroll-margin-top:72px}
 .btn{display:inline-flex;align-items:center;gap:10px;background:var(--green-dark);color:#fff;text-decoration:none;font-weight:600;padding:14px 28px;border-radius:12px;border:0;font-size:16px;cursor:pointer;transition:background .2s,transform .2s,box-shadow .2s;font-family:inherit;box-shadow:0 8px 20px rgba(79,122,55,.25)}
 .btn:hover{background:#41672d;transform:translateY(-2px)}
 .btn.ghost{background:#fff;color:var(--green-dark);border:1.5px solid var(--green-mid);box-shadow:none}
@@ -227,6 +227,7 @@ footer .legal{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.15);paddin
 .wa{position:fixed;right:20px;bottom:20px;z-index:30;width:56px;height:56px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(0,0,0,.18)}
 .wa svg{width:28px;height:28px;fill:#fff}
 .mcta{display:none}
+.swipe{display:none}
 
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
 .reveal.in{opacity:1;transform:none}
@@ -251,17 +252,101 @@ footer .legal{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.15);paddin
 }
 @media (max-width:600px){
   body{font-size:15px}
+  section{padding:56px 0}
   .wrap{padding:0 20px}
-  .logo img{height:32px}
-  .logo small{margin-left:24px;letter-spacing:.32em}
-  header nav .btn{display:none}
-  .cards4,.deliv,.steps,.row,.facts{grid-template-columns:1fr}
-  .strip .wrap{justify-content:flex-start;flex-direction:column;gap:10px;padding-left:28px}
-  .programa .banner{border-radius:24px;padding:32px 20px}
-  form.app{padding:24px 20px}
-  .fit .box{padding:24px}
-  .mcta{display:flex;position:fixed;left:16px;right:88px;bottom:20px;z-index:29;justify-content:center}
-  .mcta.off{display:none}
+  h2{font-size:26px}
+  .lead{font-size:16px}
+  .eyebrow{font-size:10.5px;letter-spacing:.1em;padding:5px 12px}
+  .logo img{height:30px}
+  .logo small{margin-left:22px;letter-spacing:.3em;font-size:8px}
+  header .wrap{height:64px}
+  header nav .btn{display:inline-flex;padding:8px 14px;font-size:13px;box-shadow:none}
+  /* hero */
+  .hero{padding:20px 0 70px}
+  .hero .wrap{gap:28px}
+  .hero h1{font-size:31px}
+  .hero .lead{margin:16px 0 22px}
+  .hero .actions{flex-direction:column;align-items:stretch;gap:10px}
+  .hero .actions .btn{justify-content:center}
+  .hero .note{margin-top:18px;font-size:13px}
+  .hero-art{max-width:290px}
+  .portrait{border-width:6px;border-radius:150px 150px 22px 22px}
+  .badge{left:-6px;bottom:22px;padding:10px 12px;font-size:12px}
+  .badge .ico{width:34px;height:34px}
+  .deco.c{right:-2px}
+  .wave svg{height:46px}
+  /* faixa em 2 colunas */
+  .strip{padding:18px 0}
+  .strip .wrap{display:grid;grid-template-columns:1fr 1fr;gap:12px 14px;padding:0 20px}
+  .strip span{font-size:13px;gap:8px;line-height:1.3}
+  .strip svg{flex:none;width:18px;height:18px}
+  /* cards compactos: ícone ao lado do texto */
+  .ident .head{margin-bottom:24px;gap:10px}
+  .cards4{grid-template-columns:1fr;gap:10px}
+  .card{display:grid;grid-template-columns:44px 1fr;column-gap:14px;padding:16px;border-radius:16px}
+  .card .ico{grid-row:span 2;width:44px;height:44px;margin:0}
+  .card h3{font-size:16px;margin:0 0 2px}
+  .card p{font-size:14px;line-height:1.55}
+  /* método */
+  .metodo .img-round{max-width:300px;margin:0 auto}
+  .quote{font-size:16px}
+  .mlist{gap:10px;margin-top:20px}
+  .mitem{padding:14px;gap:12px}
+  .mitem .ico{width:40px;height:40px}
+  .mitem h3{font-size:16px}
+  .mitem p{font-size:14px}
+  /* programa: faixa de ponta a ponta e entregáveis em carrossel */
+  .programa .wrap{padding:0}
+  .programa .banner{border-radius:0;padding:44px 0 40px}
+  .programa .top{padding:0 20px;margin-bottom:22px;gap:12px}
+  .programa .swipe{display:block;padding:0 20px;margin:-6px 0 12px;color:rgba(255,255,255,.85);font-size:13px}
+  .deliv{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding:0 20px 6px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .deliv::-webkit-scrollbar{display:none}
+  .deliv div{flex:0 0 78%;scroll-snap-align:center;padding:20px}
+  .programa .cta{padding:0 20px;margin-top:26px;flex-direction:column;align-items:stretch;text-align:center;gap:12px}
+  .programa .cta .btn{justify-content:center}
+  /* jornada em linha do tempo */
+  #como-funciona{text-align:left}
+  #como-funciona .eyebrow,#como-funciona h2{text-align:left}
+  .steps{grid-template-columns:1fr;gap:0;margin-top:28px}
+  .step{display:grid;grid-template-columns:52px 1fr;column-gap:14px;text-align:left;padding:0 0 22px}
+  .step .num{grid-row:span 2;width:48px;height:48px;margin:0;font-size:16px}
+  .step:not(:last-child):after{display:block;top:52px;bottom:4px;left:24px;right:auto;width:2px;height:auto}
+  .step h3{font-size:16px;margin:10px 0 2px}
+  .step p{font-size:14px;margin:0}
+  /* para quem é */
+  .fit .cols{margin-top:24px;gap:14px}
+  .fit .box{padding:22px}
+  .fit li{font-size:14.5px;padding:8px 0 8px 36px}
+  .fit li:before{top:8px}
+  /* sobre */
+  .sobre .art{max-width:300px;margin:0 auto}
+  .sobre .art:before{left:-10px;bottom:-10px}
+  .facts{grid-template-columns:1fr;gap:8px;margin-top:20px}
+  .facts div{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 14px}
+  .facts span{text-align:right}
+  /* onde atendo: sem repetir a foto da abertura */
+  .local .img-round{display:none}
+  .mode{padding:16px;gap:12px}
+  .mode .ico{width:40px;height:40px}
+  /* dúvidas */
+  details{padding:0 16px}
+  summary{font-size:15.5px;padding:16px 36px 16px 0}
+  summary:after{top:13px;width:26px;height:26px}
+  details p{padding-right:0;font-size:14.5px}
+  /* formulário */
+  .aplicar .wrap{gap:24px}
+  form.app{padding:22px 18px;border-radius:22px}
+  .row{grid-template-columns:1fr;gap:0}
+  input[type=text],input[type=email],input[type=tel],select,textarea{font-size:16px}
+  .chips label{font-size:13.5px;padding:8px 12px}
+  .thanks{padding:36px 22px}
+  /* rodapé */
+  footer{padding:48px 0 110px}
+  footer .wrap{gap:24px}
+  /* botão fixo: só aparece depois da abertura e some no formulário */
+  .mcta{display:flex;position:fixed;left:16px;right:88px;bottom:20px;z-index:29;justify-content:center;transform:translateY(120px);opacity:0;transition:transform .3s,opacity .3s;pointer-events:none}
+  .mcta.on{transform:none;opacity:1;pointer-events:auto}
 }
 </style>
 </head>
@@ -366,6 +451,7 @@ footer .legal{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.15);paddin
         </div>
         <p class="lead reveal">Um acompanhamento individual de 3 ou 6 meses, com começo, meio e revisões ao longo do caminho. Você não recebe só um plano: recebe presença.</p>
       </div>
+      <p class="swipe">Deslize para ver tudo o que está incluído →</p>
       <div class="deliv">
         <div class="reveal"><span class="ico"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span><h3>Avaliação de 90 minutos</h3><p>Uma conversa sem pressa sobre sua história, exames, sono, ciclo, intestino e rotina, com avaliação da composição corporal.</p></div>
         <div class="reveal"><span class="ico"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg></span><h3>Plano sob medida</h3><p>Estratégia alimentar pensada para a sua agenda, com alternativas para viagens, restaurantes e eventos.</p></div>
@@ -621,7 +707,13 @@ document.querySelectorAll('.reveal').forEach(el => io ? io.observe(el) : el.clas
 // esconde o botão fixo do celular quando o formulário está na tela
 const mcta = document.getElementById('mcta');
 const apl = document.getElementById('aplicar');
-if (io) new IntersectionObserver(es => es.forEach(e => mcta.classList.toggle('off', e.isIntersecting))).observe(apl);
+const hero = document.querySelector('.hero');
+let pastHero = false, onForm = false;
+const upd = () => mcta.classList.toggle('on', pastHero && !onForm);
+if (io) {
+  new IntersectionObserver(es => es.forEach(e => { pastHero = !e.isIntersecting; upd(); })).observe(hero);
+  new IntersectionObserver(es => es.forEach(e => { onForm = e.isIntersecting; upd(); })).observe(apl);
+}
 
 // máscara simples de WhatsApp
 const wa = document.getElementById('whatsapp');
