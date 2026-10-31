@@ -695,6 +695,8 @@ footer .legal{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.15);paddin
 </a>
 
 <script>
+// garante HTTPS: sem isso o envio do formulário falha quando a página foi aberta em http://
+if (location.protocol === 'http:' && !/^(localhost|127\.)/.test(location.hostname)) location.replace('https://' + location.host + location.pathname + location.search + location.hash);
 document.getElementById('ano').textContent = new Date().getFullYear();
 
 // header com borda ao rolar
